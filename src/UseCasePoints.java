@@ -61,8 +61,8 @@ public class UseCasePoints extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         nameTF1 = new javax.swing.JTextField();
         SimpleActorRB = new javax.swing.JRadioButton();
-        AverageActorRB1 = new javax.swing.JRadioButton();
-        ComplexActorRB1 = new javax.swing.JRadioButton();
+        AverageActorRB = new javax.swing.JRadioButton();
+        ComplexActorRB = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         calculateButton1 = new javax.swing.JButton();
@@ -141,19 +141,19 @@ public class UseCasePoints extends javax.swing.JFrame {
             }
         });
 
-        ActorComplexity.add(AverageActorRB1);
-        AverageActorRB1.setText("Average");
-        AverageActorRB1.addActionListener(new java.awt.event.ActionListener() {
+        ActorComplexity.add(AverageActorRB);
+        AverageActorRB.setText("Average");
+        AverageActorRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AverageActorRB1ActionPerformed(evt);
+                AverageActorRBActionPerformed(evt);
             }
         });
 
-        ActorComplexity.add(ComplexActorRB1);
-        ComplexActorRB1.setText("Complex");
-        ComplexActorRB1.addActionListener(new java.awt.event.ActionListener() {
+        ActorComplexity.add(ComplexActorRB);
+        ComplexActorRB.setText("Complex");
+        ComplexActorRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComplexActorRB1ActionPerformed(evt);
+                ComplexActorRBActionPerformed(evt);
             }
         });
 
@@ -189,7 +189,7 @@ public class UseCasePoints extends javax.swing.JFrame {
 
         uawLabel.setText("0");
 
-        jLabel6.setText("Unadjusted Actor Weight");
+        jLabel6.setText("Unadjusted Actor Weight = ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,8 +240,8 @@ public class UseCasePoints extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(SimpleActorRB)
-                                        .addComponent(ComplexActorRB1)
-                                        .addComponent(AverageActorRB1))
+                                        .addComponent(ComplexActorRB)
+                                        .addComponent(AverageActorRB))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(calculateButton1))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -280,11 +280,11 @@ public class UseCasePoints extends javax.swing.JFrame {
                             .addComponent(nameTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AverageActorRB1)
+                            .addComponent(AverageActorRB)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ComplexActorRB1)
+                            .addComponent(ComplexActorRB)
                             .addComponent(calculateButton1)))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -358,33 +358,33 @@ public class UseCasePoints extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SimpleActorRBActionPerformed
 
-    private void AverageActorRB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AverageActorRB1ActionPerformed
+    private void AverageActorRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AverageActorRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AverageActorRB1ActionPerformed
+    }//GEN-LAST:event_AverageActorRBActionPerformed
 
-    private void ComplexActorRB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplexActorRB1ActionPerformed
+    private void ComplexActorRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComplexActorRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComplexActorRB1ActionPerformed
+    }//GEN-LAST:event_ComplexActorRBActionPerformed
 
     private void calculateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButton1ActionPerformed
           try {
             String name = nameTF.getText();
             int complexity = 0;
             //String status;
-            final int SIMPLE = 5;
-            final int AVERAGE = 10;
-            final int COMPLEX = 15;
+            final int SIMPLE = 1;
+            final int AVERAGE = 2;
+            final int COMPLEX = 3;
             String difficulty = "";
-            if (SimpleRB.isSelected()) {
+            if (SimpleActorRB.isSelected()) {
                 difficulty = "Simple";
                 complexity = SIMPLE; 
                 totalSimpleActor++;
-            } else if (AverageRB.isSelected()) {
+            } else if (AverageActorRB.isSelected()) {
                 complexity = AVERAGE;
                 difficulty = "Average";
                 totalAverageActor++;
 
-            } else if (ComplexRB.isSelected()) {
+            } else if (ComplexActorRB.isSelected()) {
                 complexity = COMPLEX;
                 difficulty = "Complex";
                 totalAdvancedActor++;
@@ -395,7 +395,7 @@ public class UseCasePoints extends javax.swing.JFrame {
             }
             Actor actor = new Actor(name,complexity);
             actorlist.add(actor);
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
             model.addRow(new Object[]{actor.getName(),difficulty,complexity});
             uaw = (totalSimpleActor * 1) + (totalAverageActor * 2) + (totalAdvancedActor * 3);
             uawLabel.setText(Integer.toString(uaw));   
@@ -447,9 +447,9 @@ public class UseCasePoints extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup ActorComplexity;
-    private javax.swing.JRadioButton AverageActorRB1;
+    private javax.swing.JRadioButton AverageActorRB;
     private javax.swing.JRadioButton AverageRB;
-    private javax.swing.JRadioButton ComplexActorRB1;
+    private javax.swing.JRadioButton ComplexActorRB;
     private javax.swing.JRadioButton ComplexRB;
     private javax.swing.ButtonGroup Complexity;
     private javax.swing.JRadioButton SimpleActorRB;
