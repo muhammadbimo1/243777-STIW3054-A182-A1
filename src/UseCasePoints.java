@@ -938,7 +938,7 @@ public class UseCasePoints extends javax.swing.JFrame {
 
     private void calculateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButton1ActionPerformed
           try {
-            String name = nameTF.getText();
+            String name = nameTF1.getText();
             int complexity = 0;
             //String status;
             final int SIMPLE = 1;
